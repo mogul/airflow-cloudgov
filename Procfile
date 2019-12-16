@@ -1,4 +1,4 @@
 # On first run, to let the app initialize the DB...
-#   web: airflow initdb
+#   web: AIRFLOW__CORE__SQL_ALCHEMY_CONN=${DATABASE_URL} airflow initdb
 # Then: 
-web: airflow webserver --port $PORT
+web: AIRFLOW__CORE__SQL_ALCHEMY_CONN=${DATABASE_URL} airflow webserver --port $PORT
