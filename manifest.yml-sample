@@ -13,4 +13,6 @@ applications:
     #   from cryptography import fernet; fernet.Fernet.generate_key()
     # then: 
     #   cf set-env <app> AIRFLOW__CORE__FERNET_KEY <key>
+  memory: 256M
+
 
