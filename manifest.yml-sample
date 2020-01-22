@@ -1,0 +1,16 @@
+---
+applications:
+- name: airflow
+  services:
+    # cf create-service aws-rds shared-pgsql airflowdb
+    - airflowdb 
+  env:
+    AIRFLOW__CORE__LOAD_EXAMPLES: False
+    AIRFLOW_HOME: /home/vcap/app
+    AIRFLOW__WEBSERVER__AUTHENTICATE: True
+    AIRFLOW__WEBSERVER__AUTH_BACKEND: airflow.contrib.auth.backends.password_auth
+    # Separately, run python then: 
+    #   from cryptography import fernet; fernet.Fernet.generate_key()
+    # then: 
+    #   cf set-env <app> AIRFLOW__CORE__FERNET_KEY <key>
+
